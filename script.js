@@ -50,4 +50,19 @@
     }
   );
 
+  ex3One.addEventListener("dragover",
+    function(e) {
+      e.preventDefault();
+    }
+  )
+
+  ex3One.addEventListener("drop",
+    function(e) {
+      e.preventDefault();
+      const id = e.dataTransfer.getData("text/plain");
+      const element = document.getElementById(id);
+      ex3One.appendChild(element);
+    }
+  );
+
 })();
