@@ -23,4 +23,31 @@
     }
   );
 
+  const ex3Element = document.getElementById("ex3_element");
+  const ex3One = document.getElementById("ex3_one");
+  const ex3Two = document.getElementById("ex3_two");
+
+  ex3Element.setAttribute('draggable', 'true');
+
+  ex3Element.addEventListener('dragstart',
+    function(e) {
+      e.dataTransfer.setData("text/plain", e.target.id);
+    }
+  );
+
+  ex3Two.addEventListener("dragover",
+    function(e) {
+      e.preventDefault();
+    }
+  );
+
+  ex3Two.addEventListener("drop",
+    function(e) {
+      e.preventDefault();
+      const id = e.dataTransfer.getData("text/plain");
+      const element = document.getElementById(id);
+      ex3Two.appendChild(element);
+    }
+  );
+
 })();
